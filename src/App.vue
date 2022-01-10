@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <Header/>
+   <List v-bind:etudiantMessage="etudiants" />
+   <Footer/>
+   
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import List from './components/List'
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+     Header ,
+     Footer,
+     List
+     },
+  name: 'App',
+  data(){
+   return {
+     text:"",
+     nom:"ensa",
+     technologie:"vue js",
+     etudiants:
+     [
+       {nom:"mohamed",prenom:"bing",note:8},
+       {nom:"yousf",prenom:"boukir",note:17},
+       {nom:"wadie",prenom:"amrouch",note:11},
+
+     ]
+   }
+  },
+  methods:{
+    checkIfMark(){
+      return false;
+    },
+    afficherNom(){
+      alert(this.text)
+    }
+  },
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
